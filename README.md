@@ -1,4 +1,4 @@
-# Tech excercise for CQRS and Event Sourcing
+# Tech exercise for CQRS and Event Sourcing
 
 ## Scenario
 We want to buy an iPhone X, and we are saving our spare money to do so. We have a box at home where we put our spare change every day and need a way to track this (in a geek way).
