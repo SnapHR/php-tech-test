@@ -1,0 +1,44 @@
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+scalar Date @scalar(class: "App\\Http\\Controllers\\GraphQL\\Scalars\\Date")
+
+type Query {
+    users: [User!]! @all
+    user(id: ID @eq): User @find(model: "App\\Models\\User")
+}
+
+type Mutation {
+    createUser(
+        firstname: String @rules(apply: ["required"])
+        surname: String @rules(apply: ["required"])
+        dob: Date @rules(apply: ["required"])
+        gender: String @rules(apply: ["required", "in:male,female"])
+        description: String @rules(apply: ["required"])
+        email: String @rules(apply: ["required", "email", "unique:users,email"])
+        password: String @bcrypt @rules(apply: ["required"])
+    ): User @create(model: "App\\Models\\User")
+    updateUser(
+        id: ID @rules(apply: ["required"])
+        firstname: String
+        surname: String
+        dob: Date
+        gender: String
+        description: String
+        email: String @rules(apply: ["email"])
+        password: String @bcrypt
+    ): User @update(model: "App\\Models\\User")
+    deleteUser(
+        id: ID @rules(apply: ["required"])
+    ): User @delete(model: "App\\Models\\User")
+}
+
+type User {
+    id: ID!
+    firstname: String!
+    surname: String!
+    dob: Date!
+    gender: String!
+    description: String!
+    email: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
