@@ -1,7 +1,7 @@
 # PHP Tech exercise with GraphQL and Schemas
 
 ## Scenario
-We need to store some details for our users and abstract it as much as possible from the DB. To achieve this, we recommend using GraphQL schema language files, not only for the GraphQL definition but also for the DB structure so we have a 1 to 1 representation of the data we are handling.
+We need to store some details for our users and abstract it as much as possible from the DB. To achieve this and have the frontend team working in parallel, we will also be using GraphQL schema language files, not only for the GraphQL definition but also for the DB structure so we have a 1 to 1 representation of the data we are handling.
 
 ## Requirements
 
@@ -10,6 +10,7 @@ We need to store some details for our users and abstract it as much as possible 
 - Use Laravel or Symfony 4 + GraphQL.
 - Use the built in PHP server for the local environment.
 - Use a local storage technique (CSV, SQLite, …) to save the data.
+- Use a schema file to represent the inputs, types, queries and mutations.
 
 ## Valued aspects
 We will evaluate different aspects of the application. Such as
